@@ -1,0 +1,42 @@
+lgoritmo Algoritmos_Avanzada_Fecha
+	Definir dia,mes Como Entero
+	Definir bisiesto Como Logico
+	
+	Escribir "Dia:"
+	Leer dia
+	Escribir "Mes:"
+	Leer mes
+	Escribir "Es bisiesto? (Verdadero/Falso):"
+	Leer bisiesto
+	
+	Si mes=1 O mes=3 O mes=5 O mes=7 O mes=8 O mes=10 O mes=12 Entonces
+		Si dia>=1 Y dia<=31 Entonces
+			Escribir "Fecha Valida"
+		SiNo
+			Escribir "Invalida"
+		FinSi
+	SiNo
+		Si mes=4 O mes=6 O mes=9 O mes=11 Entonces
+			Si dia>=1 Y dia<=30 Entonces
+				Escribir "Fecha Valida"
+			SiNo
+				Escribir "Invalida"
+			FinSi
+		SiNo
+			Si mes=2 Entonces
+				Si bisiesto Y dia>=1 Y dia<=29 Entonces
+					Escribir "Fecha Valida"
+				SiNo
+					Si NO bisiesto Y dia>=1 Y dia<=28 Entonces
+						Escribir "Fecha Valida"
+					SiNo
+						Escribir "Invalida"
+					FinSi
+				FinSi
+			SiNo
+				Escribir "Invalida"
+			FinSi
+		FinSi
+	FinSi
+	
+FinAlgoritmo
