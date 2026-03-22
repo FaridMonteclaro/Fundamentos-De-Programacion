@@ -1,4 +1,4 @@
-Algoritmo TareasIF_Ciberseguridad_DireccionesIP_02
+Algoritmo TareasIF_Ciberseguridad_DireccionesIP
 	
 	Definir octeto Como Entero
 	
