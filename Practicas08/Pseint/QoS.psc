@@ -1,4 +1,4 @@
-Algoritmo QoS
+Algoritmo TareasIF_Ciberseguridad_QoS
 	
 	Definir tipo Como Cadena
 	Definir latencia Como Entero
