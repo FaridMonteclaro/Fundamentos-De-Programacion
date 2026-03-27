@@ -14,7 +14,7 @@ public class Examen_Fundamentos_Unidad03_ArqueoCaja {
         double totalGastos   = 0;
         double efectivoReal  = 0;
         int    opcion        = 0;
-        String textoBruto    = "";
+        String txt           = "";
 
         do {
             opcion = mostrarMenu();
@@ -25,14 +25,14 @@ public class Examen_Fundamentos_Unidad03_ArqueoCaja {
                     System.out.println("-- Fondo de Caja Inicial --");
                     System.out.println("---------------------------");
                     do {
-                        System.out.print("Ingrese el monto del fondo inicial: ");
-                        textoBruto = br.readLine();
-                        if (!validarNumero(textoBruto)) {
-                            System.out.println("Entrada invalida. Solo numeros. Intente de nuevo.");
+                        System.out.print("Ingresa el fondo inicial: ");
+                        txt = br.readLine();
+                        if (!validarNumero(txt)) {
+                            System.out.println("Dato no valido, intenta otra vez.");
                         }
-                    } while (!validarNumero(textoBruto));
-                    fondoInicial = Double.parseDouble(textoBruto);
-                    System.out.println("Fondo inicial registrado: $" + fondoInicial);
+                    } while (!validarNumero(txt));
+                    fondoInicial = Double.parseDouble(txt);
+                    System.out.println("Fondo guardado: $" + fondoInicial);
                     System.out.println();
                     break;
 
@@ -46,25 +46,25 @@ public class Examen_Fundamentos_Unidad03_ArqueoCaja {
 
                 case 4:
                     System.out.println("----------------------------");
-                    System.out.println("-- Efectivo Real en Cajon --");
+                    System.out.println("-- Efectivo en Caja --");
                     System.out.println("----------------------------");
                     do {
-                        System.out.print("Ingrese el efectivo fisico en el cajon: ");
-                        textoBruto = br.readLine();
-                        if (!validarNumero(textoBruto)) {
-                            System.out.println("Entrada invalida. Solo numeros. Intente de nuevo.");
+                        System.out.print("Ingresa el dinero en caja: ");
+                        txt = br.readLine();
+                        if (!validarNumero(txt)) {
+                            System.out.println("Dato no valido, intenta otra vez.");
                         }
-                    } while (!validarNumero(textoBruto));
-                    efectivoReal = Double.parseDouble(textoBruto);
+                    } while (!validarNumero(txt));
+                    efectivoReal = Double.parseDouble(txt);
                     calcularCorte(fondoInicial, totalVentas, totalGastos, efectivoReal);
                     break;
 
                 case 5:
-                    System.out.println("Cerrando el sistema... Hasta luego!");
+                    System.out.println("Saliendo...");
                     break;
 
                 default:
-                    System.out.println("Opcion no valida. Seleccione del 1 al 5.");
+                    System.out.println("Opcion no valida (1-5).");
                     break;
             }
 
@@ -72,9 +72,9 @@ public class Examen_Fundamentos_Unidad03_ArqueoCaja {
     }
 
     static int mostrarMenu() throws IOException {
-        String textoBruto;
-        boolean opcValida = false;
-        int opcSalida = 0;
+        String txt;
+        boolean ok = false;
+        int opc = 0;
 
         System.out.println("=================================");
         System.out.println("=== SISTEMA DE ARQUEO DE CAJA ===");
@@ -87,81 +87,75 @@ public class Examen_Fundamentos_Unidad03_ArqueoCaja {
 
         do {
             System.out.println("=======================");
-            System.out.println("Seleccione una opcion: ");
+            System.out.println("Elige una opcion: ");
             System.out.println("=======================");
-            textoBruto = br.readLine();
+            txt = br.readLine();
 
-            if (validarNumero(textoBruto)) {
-                double numOpcion = Double.parseDouble(textoBruto);
-                if (numOpcion >= 1 && numOpcion <= 5) {
-                    opcSalida = (int) numOpcion;
-                    opcValida = true;
+            if (validarNumero(txt)) {
+                double num = Double.parseDouble(txt);
+                if (num >= 1 && num <= 5) {
+                    opc = (int) num;
+                    ok = true;
                 } else {
-                    System.out.println("Opcion fuera de rango (1-5). Intente de nuevo.");
+                    System.out.println("Fuera de rango.");
                 }
             } else {
-                System.out.println("Entrada invalida. Ingrese un numero del 1 al 5.");
+                System.out.println("Pon un numero del 1 al 5.");
             }
 
-        } while (!opcValida);
+        } while (!ok);
 
-        return opcSalida;
+        return opc;
     }
 
-    static boolean validarNumero(String texto) {
-        if (texto == null || texto.length() == 0) {
+    static boolean validarNumero(String txt) {
+        if (txt == null || txt.length() == 0) {
             return false;
         }
         try {
-            double numero = Double.parseDouble(texto);
-            if (numero == 0
-                    && !texto.equals("0")
-                    && !texto.equals("0.0")
-                    && !texto.equals("00")) {
-                return false;
-            }
-            return numero >= 0;
+            Double.parseDouble(txt);
+            return true;
         } catch (NumberFormatException e) {
             return false;
         }
     }
 
     static double registrarMovimientos(String tipoMovimiento) throws IOException {
-        String textoBruto;
-        double totalAcumulado = 0;
+        String txt;
+        double total = 0;
 
         System.out.println("----------------------");
         System.out.println("-- Registrar " + tipoMovimiento + " --");
 
         do {
-            System.out.print("Cuantos movimientos de " + tipoMovimiento + " desea ingresar? ");
-            textoBruto = br.readLine();
-            if (!validarNumero(textoBruto)) {
-                System.out.println("Entrada invalida. Ingrese un numero entero.");
+            System.out.print("Cuantos movimientos de " + tipoMovimiento + ": ");
+            txt = br.readLine();
+            if (!validarNumero(txt)) {
+                System.out.println("Dato no valido.");
             }
-        } while (!validarNumero(textoBruto));
+        } while (!validarNumero(txt));
 
-        int cantMovimientos = (int) Double.parseDouble(textoBruto);
+        int cantMovimientos = (int) Double.parseDouble(txt);
 
         if (cantMovimientos == 0) {
-            System.out.println("Sin movimientos de " + tipoMovimiento + ". Total: $0");
+            System.out.println("No hay " + tipoMovimiento + ". Total: $0");
         } else {
             for (int i = 1; i <= cantMovimientos; i++) {
                 do {
-                    System.out.print("  Monto del movimiento " + i + ": $");
-                    textoBruto = br.readLine();
-                    if (!validarNumero(textoBruto)) {
-                        System.out.println("  Entrada invalida. Solo numeros. Intente de nuevo.");
+                    System.out.print("  Movimiento " + i + ": $");
+                    txt = br.readLine();
+                    if (!validarNumero(txt)) {
+                        System.out.println("  Dato no valido.");
                     }
-                } while (!validarNumero(textoBruto));
-                double montoActual = Double.parseDouble(textoBruto);
-                totalAcumulado += montoActual;
+                } while (!validarNumero(txt));
+                double monto = Double.parseDouble(txt);
+                total += monto;
             }
-            System.out.println("Total de " + tipoMovimiento + ": $" + totalAcumulado);
+            System.out.println("Total de " + tipoMovimiento + ": $" + total);
         }
 
         System.out.println();
-        return totalAcumulado;
+        return total;
     }
 
     static void calcularCorte(double fondoInicial, double totalVentas,
