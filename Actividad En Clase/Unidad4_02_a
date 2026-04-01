@@ -1,0 +1,49 @@
+package Fundamentos;
+
+public class Unidad4_02_a {
+
+	String[] alumnos = {"jorge", "maria", "luis", "ana","pedro", "lucia", "carlos", "sofia", "miguel", "isabel"};
+	int[] calificaciones = {85, 90, 78, 92, 88, 95, 91, 80, 89, 87};
+	
+	private static void Ordenar(String[] alumnos,int[] calificaciones)
+	{
+		// TODO Auto-generated method stub
+
+		int tam=alumnos.length;
+		if (tam!=calificaciones.length) {
+			System.out.println("Error: Los arreglos deben tener el mismo tamaño.");
+			return;
+		}
+		else {
+			String auxa;
+			int auxc;
+			for(int ciclopadre=0;ciclopadre<tam;ciclopadre++ )
+			for (int ciclo = 0; ciclo < tam - 1; ciclo++)
+			{
+				if (alumnos[ciclo].compareTo(alumnos[ciclo + 1]) > 0) {
+					auxa = alumnos[ciclo];
+					alumnos[ciclo] = alumnos[ciclo + 1];
+					alumnos[ciclo + 1] = auxa;
+					auxc = calificaciones[ciclo];
+					calificaciones[ciclo] = calificaciones[ciclo + 1];
+					calificaciones[ciclo + 1] = auxc;
+			     }
+			 }
+	      }
+      }
+	public static String Mostrar(String[] alumnos,int[] calificaciones) {
+		String salida="";
+		for (int ciclo=0; ciclo<alumnos.length; ciclo++) 
+			salida=salida+alumnos[ciclo]+": "+calificaciones[ciclo]+"\n";
+		return salida;
+	}
+	public static void main(String[] args) {
+		String[] alumnos = {"jorge", "maria", "luis", "ana","pedro", "lucia", "carlos", "sofia", "miguel", "isabel"};
+		int[] calificaciones = {85, 90, 78, 92, 88, 95, 80, 91, 87, 89};
+		
+		System.out.println("Antes de ordenar: \n"+Mostrar(alumnos,calificaciones));
+		
+		Ordenar(alumnos,calificaciones);
+		System.out.println("Después de ordenar: \n"+Mostrar(alumnos,calificaciones));
+	}
+}
