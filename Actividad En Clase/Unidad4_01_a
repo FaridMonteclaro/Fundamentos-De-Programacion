@@ -1,0 +1,23 @@
+package Fundamentos;
+
+public class Unidad4_01_a {
+
+	private static String Menus (String[] opciones) 
+	{
+		String salida="";
+		for (int ciclo=0; ciclo<opciones.length; ciclo++) 
+			salida=salida+opciones[ciclo]+"\n";
+		return salida;
+	}
+
+	    public static void main(String[] args) {
+	    // TODO Auto-generated method stub
+	    String[] menus= new String[5];	
+	    menus[0]="1. Opción 1";
+	    menus[1]="2. Opción 2";
+	    menus[2]="3. Opción 3";
+	    menus[3]="4. Opción 4";
+	    menus[4]="5. Salir";
+	    System.out.println(Menus(menus));
+	 }
+}
