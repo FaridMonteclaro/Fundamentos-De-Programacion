@@ -1,0 +1,13 @@
+Algoritmo AreaCirculo
+    Definir r, area Como Entero
+    Escribir "Radio:"
+    Leer r
+	
+    area <- 3 * r * r
+	
+    Si area > 78 Entonces
+        area <- 78
+    FinSi
+	
+    Escribir "Area aproximada: ", area
+FinAlgoritmo
