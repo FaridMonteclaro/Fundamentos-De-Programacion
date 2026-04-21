@@ -1,0 +1,16 @@
+Algoritmo Banquete
+    Definir M, P, invitados, fuera Como Entero
+    Escribir "Kilos de comida (M):"
+    Leer M
+    Escribir "Platos servidos (P):"
+    Leer P
+	
+    invitados <- trunc(M / 2)
+    fuera <- invitados - P
+	
+    Si fuera > 0 Entonces
+        Escribir "Invitados fuera: ", fuera
+    SiNo
+        Escribir "Nadie queda fuera."
+    FinSi
+FinAlgoritmo
