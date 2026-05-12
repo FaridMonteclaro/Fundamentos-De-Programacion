@@ -1,12 +1,9 @@
 package Fundamentos;
 import javax.swing.JOptionPane;
 
-public class Prob_5_1_Mientras 
-{
-    public class Prob_5_1_Mientras_b 
-{
-    public static void main(String[] args) 
-{
+import javax.swing.JOptionPane;
+public class Prob_5_1_Mientras {
+    public static void main(String[] args) {
         String opc;
         int num, ciclo;
         double suma, resultado, sumapromedio;
