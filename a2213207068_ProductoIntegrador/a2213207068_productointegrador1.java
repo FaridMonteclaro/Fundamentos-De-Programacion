@@ -6,7 +6,6 @@ public class a2213207068_productointegrador {
     private static Scanner scanner = new Scanner(System.in);
 
     public static String MostrarMenu(String[] opciones) {
-    	// TODO Auto-generated method stub
     	
         String cadena = "";
         int i = 0;
