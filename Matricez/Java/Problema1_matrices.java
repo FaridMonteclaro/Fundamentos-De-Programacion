@@ -1,3 +1,5 @@
+package Fundamentos;
+
 public class Problema1_Matricez {
     public static void main(String[] args) {
         int[][] matriz = new int[6][5];
