@@ -1,3 +1,5 @@
+package Fundamentos;
+
 public class Problema3_matrices {
     public static void main(String[] args) {
         int[][] pascal = new int[7][13];
