@@ -1,0 +1,18 @@
+public class Problema1_Matricez {
+    public static void main(String[] args) {
+        int[][] matriz = new int[6][5];
+        // Llenar columna por columna
+        for (int c = 0; c < matriz[0].length; c++) {
+            for (int r = 0; r < matriz.length; r++) {
+                matriz[r][c] = (int)(Math.random() * 801) + 100;
+            }
+        }
+        // Imprimir renglón por renglón
+        for (int r = 0; r < matriz.length; r++) {
+            for (int c = 0; c < matriz[r].length; c++) {
+                System.out.print(matriz[r][c] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
